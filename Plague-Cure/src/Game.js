@@ -1,5 +1,9 @@
 // This is global game object as singleton to control the main game cycle
-import Render from "./Render";
+import MainContainer from "./MainContainer";
+
+import TestObject from "./GameObject/moving";
+
+
 export default class Game {
   static instance;
   constructor(canvas) {
@@ -8,6 +12,7 @@ export default class Game {
     }
     Game.instance = this;  
     this.canvas = canvas
-    this.render = new Render()
+    this.mainContainer = new MainContainer()
+    this.testobj = new TestObject(0,0)
   }
 }

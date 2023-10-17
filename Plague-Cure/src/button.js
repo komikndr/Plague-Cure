@@ -1,1 +1,0 @@
-// This is for template for button and icon
