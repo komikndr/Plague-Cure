@@ -1,9 +1,11 @@
 import Game from "./Game.js";
-import { Application, Container, Sprite } from "pixi.js";
+import { Application } from "pixi.js";
+import Country from "./GameObject/Countries";
+import Severity from "./GameObject/Severity";
 
 import { canvasConfig } from "./Config.js";
 
-export default class MainContainer{
+export default class MainContainer {
   constructor() {
     this.game = new Game();
     this.canvas = this.game.canvas;
@@ -15,8 +17,19 @@ export default class MainContainer{
       width: canvasConfig.width,
       height: canvasConfig.height,
     });
-    this.screen = this.mainCanvas.screen
+    this.screen = this.mainCanvas.screen;
+    this.mainStage = this.mainCanvas.stage
+  }
+
+  makeSprites() {
+    this.country = new Country();
+    this.mainStage.addChild(this.country)
+    this.severity = new Severity();
+    this.mainStage.addChild(this.severity)
+  }
+
+  update() {
+    this.country.update();
+    // this.severity.update();
   }
 }
-
-
